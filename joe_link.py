@@ -45,18 +45,29 @@ def create_report(plant_name):
     pass
 
 
+def link_api(base_link, date, stime, etime):
+    # grab the base link, return link with correct date and time range...
+
+    pass
+
+def df_to_csv(data, filename, path):
+    data.to_csv(filename)
+
 
 def main():
-    marion_test = 'http://mrnstg.na.graphicpkg.pri:8088/system/webdev/GPI_MES_CORP/DowntimeMESExport/?start=2022-12-07%2007:00:36%20-05:00&end=2022-12-08%2007:00:00%20-05:00'
-    marion_production = 'http://mrn.na.graphicpkg.pri:8088/system/webdev/GPI_MES_CORP/DowntimeMESExport/?start=2022-12-07%2007:00:36%20-05:00&end=2022-12-08%2007:00:00%20-05:00'
-    # test_link = marion_test
-    test_link = marion_production
+    marion_test = 'http://mrnstg.na.graphicpkg.pri:8088/system/webdev/GPI_MES_CORP/DowntimeMESExport/?start=2022-12-08%2007:00:00%20-05:00&end=2022-12-08%2019:00:00%20-05:00'
+    # marion_production = 'http://mrn.na.graphicpkg.pri:8088/system/webdev/GPI_MES_CORP/DowntimeMESExport/?start=2022-12-07%2007:00:36%20-05:00&end=2022-12-08%2007:00:00%20-05:00'
+    marion_production = 'http://mrn.na.graphicpkg.pri:8088/system/webdev/GPI_MES_CORP/DowntimeMESExport/?start=2022-12-08%2007:00:00%20-05:00&end=2022-12-8%2019:00:00%20-05:00'
+    test_link = marion_test
+    # test_link = marion_production
     
     data = link_data(test_link)
 
+    df_to_csv(data, 'marion_stage_221209.csv', ".")
 
-
-    print(data.values)
+    # print(data.values)
+    # for line in data.values:
+    #     print(line)
 
     # for d in data:
     #     print(data[d])
